@@ -7,7 +7,6 @@ function Post({post}) {
   return (
     <View style={{marginBottom: 30}}>
       <Divider width={1} orientation="vertical" />
-
       <PostHeader post={post} />
       <PostImage post={post} />
       <PostFooter post={post} />
@@ -37,11 +36,17 @@ const PostHeader = ({post}) => {
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Image source={{uri: post.profilePicture}} style={styles.story} />
-        <Text style={{color: 'white', marginLeft: 5, fontWeight: 500}}>
+        <View style={{flexDirection:"column", alignItems: 'center'}}>
+        <Text style={{color: 'black', marginLeft: 5, fontWeight: 500}}>
           {post.users}
         </Text>
+        <Text>hvj</Text>
+        </View>
       </View>
-      <Text style={{color: 'white', fontWeight: 900}}>...</Text>
+      {/* <Text style={{color: 'white', fontWeight: 900}}>...</Text> */}
+      <View>
+        <Image style={styles.icons} source={require("../../assets/dots.png")} />
+      </View>
     </View>
   );
 };
@@ -60,27 +65,33 @@ const PostFooter = ({ post }) => {
                     <TouchableOpacity>
                         <Image
                             style={styles.icons}
-                            source={{ uri: 'https://img.icons8.com/ios/24/null/hearts--v1.png' }}
+                            source={require("../../assets/heart-icon.png")}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <Image
                             style={styles.icons}
-                            source={{ uri: 'https://img.icons8.com/ios/24/null/speech-bubble--v1.png' }}
+                            source={require("../../assets/chat-bubble.png")}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <Image
                             style={styles.icons}
-                            source={{ uri: 'https://img.icons8.com/material-outlined/24/null/filled-sent.png' }}
+                            source={require("../../assets/direct-instagram.png")}
                         />
                     </TouchableOpacity>
+                    <TouchableOpacity>
+                    <Image
+                        style={styles.icons}
+                        source={require("../../assets/whatsapp.png")}
+                    />
+                </TouchableOpacity>
                 </View>
                 {/* save icon */}
                 <TouchableOpacity>
                     <Image
                         style={styles.icons}
-                        source={{ uri: 'https://img.icons8.com/material/24/null/bookmark-outline.png' }}
+                        source={require("../../assets/save-instagram.png")}
                     />
                 </TouchableOpacity>
             </View>
@@ -88,12 +99,12 @@ const PostFooter = ({ post }) => {
             {/* likes */}
             <View>
                 <View style={{ marginVertical: 5 }}>
-                    <Text style={{ color: 'white', fontSize: 12 }}>{post.likes.toLocaleString()} likes</Text>
+                    <Text style={{ color: 'black', fontSize: 12 }}>{post.likes.toLocaleString()} likes</Text>
                 </View>
                 {/* caption */}
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={{
-                        color: 'white',
+                        color: 'black',
                         fontWeight: '600',
                     }}>{post.users + ' '}
                         <Text style={{
@@ -110,7 +121,7 @@ const PostFooter = ({ post }) => {
                     post.comments && post.comments.length > 0 ?
                         <TouchableOpacity
                             onPress={() => setOpen(!open)}>
-                            <Text style={{ color: 'white', marginVertical: 5 }}
+                            <Text style={{ color: 'black', marginVertical: 5 }}
                             >
                                 {!open ? 'Show All comments' : 'Hide Comments'}
                             </Text>
@@ -138,7 +149,7 @@ const PostFooter = ({ post }) => {
                                             }} />
                                         <Text
                                             style={{
-                                                color: 'white',
+                                                color: 'black',
                                                 paddingLeft: 10,
                                             }}>
                                             {comment.user}
@@ -146,10 +157,10 @@ const PostFooter = ({ post }) => {
                                     </View>
                                     <Text
                                         style={{
-                                            color: 'grey', fontSize: 12,
+                                            color: 'black', fontSize: 12,
                                             marginLeft: 45,
                                         }}>
-                                        {comment.comment}
+                                        {comment.comments}
                                     </Text>
                                 </View>
                             );
@@ -200,8 +211,6 @@ const styles = StyleSheet.create({
       width: 30,
       height: 30,
       marginRight: 15,
-      backgroundColor: 'white',
-      borderRadius: 10,
   },
   });
 export default Post;
