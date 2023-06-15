@@ -6,14 +6,14 @@ export default function Header() {
   return (
     <View style={style.container}>
       <TouchableOpacity>
-      <Image style={style.logo}  source={require('../../assets/instagram-header-white-logo.png')}/>
+      <Image style={style.logo}  source={{uri: "https://hindubabynames.info/downloads/wp-content/themes/hbn_download/download/social-media/instagram-text-logo.png"}}/>
       </TouchableOpacity>
       <View style={style.iconContainer}>
       <TouchableOpacity>
-      <Image style={style.icon}  source={require('../../assets/plus-icon.png')}/>
+      <Image style={style.icon}  source={require('../../assets/icons8-camera-50.png')}/>
       </TouchableOpacity>
       <TouchableOpacity>
-      <Image style={style.icon}  source={require('../../assets/icons8-heart-50.png')}/>
+      <Image style={style.icon}  source={require("../../assets/heart-icon.png")}/>
       </TouchableOpacity>
       <TouchableOpacity>
         <View style={style.unreadBadge}>
@@ -21,7 +21,7 @@ export default function Header() {
             11
         </Text>
         </View>
-      <Image style={style.icon}  source={require('../../assets/icons8-messages-60.png')}/>
+      <Image style={style.icon}  source={require('../../assets/direct-instagram.png')}/>
       </TouchableOpacity>
       </View>
     </View>
@@ -31,6 +31,8 @@ export default function Header() {
 const style = StyleSheet.create({
     iconContainer:{
         flexDirection:'row',
+        marginRight:-20,
+        marginTop: 5,
     },
     container:{
         justifyContent: 'space-between',
@@ -41,19 +43,19 @@ const style = StyleSheet.create({
     logo:{
         width:100,
         height:50,
-        resizeMode:'contain',
+        marginLeft: -20,
+        // resizeMode:'contain',
     },
     icon:{
         width:30,
         height:30,
-        marginLeft:10,
-        resizeMode:'center',
+        margin:8,
     },
     unreadBadge:{
         backgroundColor: '#FF3250',
         position: 'absolute',
         left:20,
-        bottom:18,
+        bottom:25,
         width:25,
         height:18,
         borderRadius: 25,
